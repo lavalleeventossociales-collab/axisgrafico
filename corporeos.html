@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Letras Corpóreas y Logos 3D | Axis Gráfico</title>
+    <!-- Cargamos Tailwind y Material Symbols -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Cambio a una fuente más moderna */
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+        /* Navegación consistente */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid #222;
+        }
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 24px;
+        }
+        @media (min-width: 1024px) {
+            .nav-links { display: flex; }
+        }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: #FFD700;
+        }
+        .nav-cta {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px; /* Estilo más corporativo */
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: transform 0.2s;
+        }
+        .nav-cta:hover { transform: translateY(-2px); }
+
+        /* Colores de Marca */
+        .line-yellow { color: #FFD700; }
+        .line-magenta { color: #FF00FF; }
+
+        /* Material Symbols Icons */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: 400 !important;
+            font-style: normal !important;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Contenedores multimedia optimizados */
+        .media-card {
+            background: #111;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: all 0.4s ease;
+        }
+        .media-card:hover {
+            border-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+        }
+        .media-card img, .media-card video {
+            width: 100%;
+            height: 300px; /* Altura fija para uniformidad */
+            object-fit: cover;
+            cursor: zoom-in;
+        }
+
+        /* Marquee Animado */
+        .marquee-wrap {
+            background: linear-gradient(90deg, #000, #111, #000);
+            padding: 20px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-item {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #555;
+        }
+        .marquee-item span { color: #FFD700; margin-right: 10px; }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="lg:hidden">
+        <span class="material-symbols-outlined text-white">menu</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="vinilo.html">Vinilo</a></li>
+        <li><a href="vehicular.html">Vehicular</a></li>
+        <li><a href="portabanner.html">Porta Banner</a></li>
+        <li><a href="corporeos.html" class="active">Corpóreos</a></li>
+        <li><a href="imantados.html">Imantados</a></li>
+        <li><a href="mundial.html">Mundial</a></li> <!-- Corregido: quitada clase active -->
+    </ul>
+    
+</nav>
+
+<!-- SECCIÓN HERO -->
+<section class="grid grid-cols-1 lg:grid-cols-2 items-center px-[5%] py-16 gap-12 max-w-7xl mx-auto">
+    <div>
+        <div class="flex items-center gap-2 line-yellow text-xs font-bold uppercase tracking-widest mb-4">
+            <span class="w-8 h-[1px] bg-yellow-500"></span> ✦ Presencia y Volumen
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black leading-none mb-6">
+            Logos y Letras <br><span class="line-magenta">Corpóreas.</span>
+        </h1>
+        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+            Dale vida a tus espacios con nuestros carteles en <strong class="text-white">Polyfan</strong>. Ligeros, resistentes y 100% personalizables, perfectos para resaltar la identidad de tu negocio.
+        </p>
+        <div class="flex flex-wrap gap-6">
+            <div class="flex items-center gap-3">
+                <span class="p-2 bg-[#111] rounded-lg line-yellow" style="font-size: 24px;">🎬</span>
+                <span class="text-sm font-medium text-gray-300">Efecto 3D Real</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="p-2 bg-[#111] rounded-lg line-yellow" style="font-size: 24px;">🎨</span>
+                <span class="text-sm font-medium text-gray-300">Pintura Premium</span>
+            </div>
+        </div>
+    </div>
+    <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-600 to-magenta-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+        <div class="relative bg-black rounded-2xl overflow-hidden border border-white/10">
+            <video controls autoplay muted loop class="w-full aspect-video object-cover">
+                <source src="images/AXIS 3D .mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+
+<!-- SECCIÓN: Galería de Corpóreos -->
+<section class="px-[5%] py-20 bg-[#050505]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <!-- Tarjeta 1 -->
+        <div class="media-card group">
+            <div class="overflow-hidden">
+                <img src="images/corporeas-36.jpg" alt="Letras en Polyfan detalle" class="media-container img">
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold line-yellow mb-3">Corte de Precisión</h3>
+                <p class="text-gray-400 leading-relaxed">Utilizamos tecnología de punta para lograr bordes limpios y formas exactas según tu diseño original.</p>
+            </div>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="media-card group">
+            <div class="overflow-hidden">
+                <img src="images/ChatGPT Image 4 abr 2026, 02_14_52.png" alt="Logo 3D Polyfan acabado" class="media-container img">
+            </div>
+            <div class="p-8">
+                <h3 class="text-2xl font-bold line-magenta mb-3">Acabados Profesionales</h3>
+                <p class="text-gray-400 leading-relaxed">Logos comerciales diseñados para atraer miradas y dar una presencia imponente a tu marca.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Marquee de Cierre -->
+<div class="marquee-wrap">
+    <div class="marquee-track">
+        <div class="marquee-item"><span>✦</span> Letras en Polyfan</div>
+        <div class="marquee-item"><span>✦</span> Logos 3D</div>
+        <div class="marquee-item"><span>✦</span> Cartelería Comercial</div>
+        <div class="marquee-item"><span>✦</span> Corpóreos con Luz</div>
+        <div class="marquee-item"><span>✦</span> Fachadas Impactantes</div>
+        <!-- Duplicado para loop -->
+        <div class="marquee-item"><span>✦</span> Letras en Polyfan</div>
+        <div class="marquee-item"><span>✦</span> Logos 3D</div>
+        <div class="marquee-item"><span>✦</span> Cartelería Comercial</div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 5000; display: none; justify-content: center; align-items: center;">
+    <button id="close-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; background: none; border: none; cursor: pointer;">&times;</button>
+    <img id="lightbox-img" src="" style="max-width: 90%; max-height: 85%; border: 1px solid #444; border-radius: 4px; box-shadow: 0 0 50px rgba(255,255,255,0.1);">
+</div>
+
+<script src="script.js"></script>
+<!-- Botón Flotante de WhatsApp para Axis Gráfico -->
+<a href="https://wa.me/549261372586?text=Hola%20Axis%20Gráfico!%20Necesito%20un%20presupuesto%20personalizado." 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="whatsapp-float"
+   title="Contactanos por WhatsApp">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.212 7.375-1.938c2.212 1.075 4.7 1.688 7.325 1.688 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.25 22.187c-.338.95-1.638 1.838-2.65 2.05-.7.137-1.6.25-4.7-1.025-3.95-1.625-6.5-5.638-6.7-5.9-.2-.262-1.625-2.163-1.625-4.125 0-1.963 1.025-2.925 1.388-3.325.363-.4.8-.5 1.063-.5.263 0 .525.013.75.025.238.013.563-.088.875.663.338.825 1.15 2.813 1.25 3.013.1.2.163.425.025.688-.125.262-.2.438-.4.662-.2.225-.425.5-.6.675-.2.2-.413.413-.175.825.238.4 1.05 1.738 2.25 2.813 1.55 1.388 2.85 1.825 3.25 2.025.4.2.638.175.875-.1.238-.275 1.025-1.188 1.3-1.6.275-.413.55-.338.925-.2.375.138 2.388 1.125 2.8 1.325.413.2.688.3.788.475.1.175.1 1.013-.238 1.963z"/>
+    </svg>
+</a>
+
+<style>
+    /* Estilos del botón flotante */
+    .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 1000; /* Asegura que esté por encima de todo */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+        transform: scale(1.1);
+        background-color: #20ba5a;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .whatsapp-icon {
+        width: 35px;
+        height: 35px;
+        fill: white;
+    }
+
+    /* Adaptación para pantallas pequeñas */
+    @media screen and (max-width: 768px) {
+        .whatsapp-float {
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+        }
+        .whatsapp-icon {
+            width: 28px;
+            height: 28px;
+        }
+    }
+</style>
+</body>
+</html>

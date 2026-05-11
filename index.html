@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Axis Gráfico | El eje de tu visibilidad</title>
+    
+    <!-- Librerías Externas -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
+        /* --- ESTILOS BASE --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0; padding: 0;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGACIÓN (Actualizada) --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222;
+        }
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 20px;
+        }
+        @media (min-width: 1024px) { .nav-links { display: flex; } }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #FFD700; }
+        
+        .nav-cta {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* --- HERO SECTION (Diseño de Reemplazo) --- */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: 85vh;
+            align-items: center;
+            padding: 40px 5%;
+            gap: 40px;
+        }
+        @media (min-width: 1024px) {
+            .hero-grid { grid-template-columns: 1.2fr 1fr; }
+        }
+        .hero-eyebrow { color: #ccc; margin-bottom: 10px; font-weight: 500; }
+        .hero-h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            font-weight: 800;
+        }
+        .line-yellow { color: #FFD700; }
+        .line-magenta { color: #FF00FF; }
+        .hero-sub {
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin-bottom: 30px;
+            color: #bbb;
+        }
+
+        /* --- LOGO CIRCULAR --- */
+        .hero-logo {
+            width: 500px;
+            height: 500px;
+            max-width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #111;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+        }
+
+        /* --- BOTONES HERO --- */
+        .highlight-box {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn-ghost {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+        /* --- POP-UP MUNDIAL (Ampliado) --- */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 1.2s ease-out;
+            pointer-events: none;
+        }
+        .popup-visible { opacity: 1; pointer-events: auto; }
+        .popup-content { position: relative; width: 650px; max-width: 92%; }
+        .popup-img {
+            width: 100%; height: auto; max-height: 85vh;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9));
+        }
+        .close-btn {
+            position: absolute; top: -15px; right: -15px;
+            background: #00AEEF; color: #fff; border-radius: 50%;
+            width: 40px; height: 40px; cursor: pointer; border: 2px solid #fff;
+            display: flex; justify-content: center; align-items: center; font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 2100;
+        }
+
+        /* --- MARQUEE --- */
+        .marquee-wrap { background: #111; padding: 25px 0; overflow: hidden; white-space: nowrap; border-top: 1px solid #222; }
+        .marquee-track { display: inline-block; animation: marquee 25s linear infinite; }
+        .marquee-item { display: inline-block; margin-right: 50px; font-size: 1.3rem; font-weight: bold; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: #25d366; border-radius: 50px; display: flex;
+            justify-content: center; align-items: center; z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
+        .whatsapp-icon { width: 35px; height: 35px; fill: white; }
+    </style>
+</head>
+<body>
+
+    <!-- POP-UP MUNDIAL (Conservado) -->
+    <div id="popup-mundial" class="popup-overlay">
+        <div class="popup-content">
+            <button id="close-popup" class="close-btn">&times;</button>
+            <a href="mundial.html">
+                <img src="images/Baner index 2.png" alt="Mundial Axis" class="popup-img">
+            </a>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN (Actualizada con tus enlaces) -->
+    <nav>
+        <div class="flex items-center gap-2">
+            <span class="line-yellow font-bold text-2xl">AXIS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="vinilo.html">Vinilo</a></li>
+            <li><a href="vehicular.html">Vehicular</a></li>
+            <li><a href="portabanner.html">Porta Banner</a></li>
+            <li><a href="corporeos.html">Corpóreos</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO (Nuevo diseño circular) -->
+    <section class="hero-grid">
+        <div class="hero-left">
+            <div class="hero-eyebrow">✦ Axis Gráfico — El eje de tu visibilidad</div>
+            <h1 class="hero-h1">
+                <span class="line-white">Diseño que</span>
+                <span class="line-yellow">posiciona.</span><br/>
+                <span class="line-white">Gráfica que</span>
+                <span class="line-magenta">impacta.</span>
+            </h1>
+            <p class="hero-sub">
+                AXIS no es "un lugar que imprime cosas". Es el punto donde la marca se ordena, se define y se proyecta al público con calidad profesional.
+            </p>
+            <div class="flex gap-4">
+                <p class="highlight-box">Instalación - Reemplazo de lonas - Reparación de carteles - Ploteos</p>
+                
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt-ccfmRSndlanEmxspR86EpIzLZUZWaPDDsY6-ElMFAXmec63WHqBY8a0z2S8BM_uJVo8llAuAOghtUQL0p25XH-xUF-DZe7RegVK9_qZJ2s7QwHTD82RdUMFfiU-twTHemRGysu7F-ueKlr8VX21loNlb7WhyG7_nZkQHMHM7ijIrqyvJx4EdM8OkgdIxjqnTgE406XFoWXjeSphgaE1Fq5wML7COTVPocKdoS1JbH_ib5bFgM79zUEQ9VOJwJ_FTkC4Stko4yD1" alt="Axis Gráfico Logo" class="hero-logo">
+        </div>
+    </section>
+
+    <!-- MARQUEE (Consolidado) -->
+    <div class="marquee-wrap">
+        <div class="marquee-track">
+            <div class="marquee-item">✦ Vinilos Decorativos</div>
+            <div class="marquee-item">✦ Rotulación Vehicular</div>
+            <div class="marquee-item">✦ Letras Corpóreas</div>
+            <div class="marquee-item">✦ Cartelería Exterior</div>
+            <div class="marquee-item">✦ Diseño de Logotipos</div>
+            <!-- Duplicado para loop infinito -->
+            <div class="marquee-item">✦ Vinilos Decorativos</div>
+            <div class="marquee-item">✦ Rotulación Vehicular</div>
+            <div class="marquee-item">✦ Letras Corpóreas</div>
+            <div class="marquee-item">✦ Cartelería Exterior</div>
+            <div class="marquee-item">✦ Diseño de Logotipos</div>
+        </div>
+    </div>
+
+    <!-- Estructura del Lightbox (Conservado) -->
+    <div id="lightbox" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 5000; display: none; justify-content: center; align-items: center;">
+        <button id="close-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; background: none; border: none; cursor: pointer;">&times;</button>
+        <img id="lightbox-img" src="" style="max-width: 90%; max-height: 80%; border: 2px solid #00AEEF; border-radius: 8px;">
+    </div>
+
+    <!-- SCRIPT (Lógica de Pop-up y Zoom) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('popup-mundial');
+            const close = document.getElementById('close-popup');
+
+            // 1. Aparición del Pop-up
+            setTimeout(() => {
+                if(popup) popup.classList.add('popup-visible');
+            }, 500);
+
+            // 2. Cierre automático tras 8.5 segundos
+            setTimeout(cerrarPopup, 8500);
+
+            // 3. Cierre manual
+            if(close) close.onclick = cerrarPopup;
+            if(popup) popup.onclick = (e) => { if(e.target === popup) cerrarPopup(); };
+
+            function cerrarPopup() {
+                if(popup) {
+                    popup.classList.remove('popup-visible');
+                    setTimeout(() => popup.style.display = 'none', 1500);
+                }
+            }
+        });
+    </script>
+
+    <!-- Botón de WhatsApp Flotante -->
+    <a href="https://wa.me/549261372586?text=Hola%20Axis%20Gráfico!%20Necesito%20un%20presupuesto%20personalizado." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.212 7.375-1.938c2.212 1.075 4.7 1.688 7.325 1.688 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.25 22.187c-.338.95-1.638 1.838-2.65 2.05-.7.137-1.6.25-4.7-1.025-3.95-1.625-6.5-5.638-6.7-5.9-.2-.262-1.625-2.163-1.625-4.125 0-1.963 1.025-2.925 1.388-3.325.363-.4.8-.5 1.063-.5.263 0 .525.013.75.025.238.013.563-.088.875.663.338.825 1.15 2.813 1.25 3.013.1.2.163.425.025.688-.125.262-.2.438-.4.662-.2.225-.425.5-.6.675-.2.2-.413.413-.175.825.238.4 1.05 1.738 2.25 2.813 1.55 1.388 2.85 1.825 3.25 2.025.4.2.638.175.875-.1.238-.275 1.025-1.188 1.3-1.6.275-.413.55-.338.925-.2.375.138 2.388 1.125 2.8 1.325.413.2.688.3.788.475.1.175.1 1.013-.238 1.963z"/></svg>
+    </a>
+
+    <!-- Carga del script externo para el Zoom -->
+    <script src="script.js"></script>
+
+</body>
+</html>

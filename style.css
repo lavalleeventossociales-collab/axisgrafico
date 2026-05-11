@@ -1,0 +1,497 @@
+/* Prevenir que cualquier elemento se salga de la pantalla */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Corta cualquier cosa que intente salirse a la derecha */
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box; /* Asegura que el padding no sume ancho extra */
+}
+/* 1. RESET Y CONFIGURACIÓN BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    background-color: #0d0d0d; /* Fondo negro profundo */
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. NAVEGACIÓN */
+nav {
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%; /* Usa porcentajes, nunca píxeles fijos para anchos */
+}
+
+/* En el Media Query de móviles (max-width: 768px) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Si no caben, que bajen a la siguiente línea */
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+/* 3. SECCIÓN HERO (GRID) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    min-height: 90vh;
+    align-items: center;
+}
+
+.hero-left {
+    padding: 60px 10%;
+}
+
+.hero-eyebrow {
+    color: #ffe600;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.hero-h1 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.line-white { color: #fff; display: block; }
+.line-yellow { color: #ffe600; display: block; }
+.line-magenta { color: #ff00ff; display: block; }
+
+.hero-eje {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero-sub {
+    max-width: 500px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-yellow {
+    background: #ffe600;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 15px 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+}
+
+/* 4. MARQUEE (CINTA CORREDIZA) */
+.marquee-wrap {
+    background: #ffe600;
+    color: #000;
+    padding: 20px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.marquee-item {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.5rem;
+    padding: 0 40px;
+    text-transform: uppercase;
+}
+
+.marquee-item span {
+    margin-right: 10px;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* 5. RESPONSIVE (MÓVIL) */
+@media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .nav-links { display: none; }
+}
+/* Espaciado para los títulos que vienen después de las fotos */
+.mt-large {
+    margin-top: 80px;
+}
+
+/* Contenedor principal de secciones */
+.section-container {
+    padding: 100px 5%;
+    background-color: #0d0d0d;
+}
+
+.image-grid-two, .image-single {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 30px 0;
+}
+
+.image-grid-two img, .image-single img {
+    width: 100%;
+    height: auto; /* Permite que la imagen tome su altura natural */
+    max-height: 550px; /* Limita la altura para que no ocupe toda la pantalla */
+    object-fit: contain; /* Muestra la imagen COMPLETA sin recortes */
+    background-color: #1a1a1a; /* Fondo oscuro por si la imagen tiene transparencias */
+    border: 2px solid #333;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid-two img {
+    flex: 1; /* Hace que las dos imágenes en la grilla midan lo mismo de ancho */
+    max-width: 48%;
+}
+
+.image-single img {
+    max-width: 500px; /* Tamaño máximo para imágenes individuales como el Fly Banner */
+}
+
+/* Estilo para bloques de productos */
+.product-block {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #333;
+}
+
+.mini-title {
+    color: #ffe600;
+    font-size: 1rem;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+
+}
+
+/* Grilla de 4 imágenes */
+.image-grid-four {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Estilo general para las fotos */
+.image-grid-two img, .image-grid-four img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border: 2px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.image-grid-two img:hover, .image-grid-four img:hover {
+    transform: scale(1.02);
+    border-color: #ffe600;
+}
+/* Estilos para listas de ventajas */
+.section-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.section-list li {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+}
+
+/* Icono de diamante para la lista */
+.section-list li::before {
+    content: "✦";
+    color: #ffe600;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Variante de fondo para separar secciones */
+.bg-dark-variant {
+    background-color: #141414; /* Un negro ligeramente más claro que el fondo base */
+    border-top: 1px solid #222;
+}
+/* Estilo específico para ajustar imágenes PNG en las grillas si es necesario */
+.image-grid-four img[src$=".png"] {
+    background-color: #1a1a1a; /* Un fondo sutil para logos con transparencia */
+    object-fit: contain; /* Para que el logo no se recorte */
+    padding: 5px;
+}
+/* Estilo que se activará con JavaScript */
+.nav-active {
+    background-color: #000000 !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    padding: 10px 5%; /* El menú se hace un poco más delgado al bajar */
+    transition: all 0.4s ease;
+}
+/* Clase que añadiremos con JavaScript cuando el usuario haga scroll */
+.nav-scrolled {
+    background-color: rgba(0, 0, 0, 0.9) !important; /* Fondo negro sólido con ligera transparencia */
+    padding: 10px 5% !important; /* El menú se vuelve un poco más delgado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+    transition: all 0.4s ease-in-out; /* Animación suave */
+}
+
+/* Aseguramos que el nav original tenga una transición para que no sea brusco */
+nav {
+    transition: all 0.4s ease-in-out;
+    position: fixed; /* Asegúrate de que sea fixed para que flote */
+    width: 100%;
+}
+/* Estilos del Lightbox */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 10000; /* Por encima del menú sticky */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro traslúcido */
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 3px solid #ffe600; /* Marco amarillo Axis */
+    box-shadow: 0 0 30px rgba(255, 230, 0, 0.2);
+    animation: zoomIn 0.3s ease; /* Efecto de entrada */
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #ffe600;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+/* Espaciado para subsecciones */
+.mt-large {
+    margin-top: 80px;
+    border-top: 1px solid #333;
+    padding-top: 60px;
+}
+
+.mini-title {
+    color: #ffe600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Para cuando hay una sola imagen centrada */
+.image-single {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.image-single img {
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.image-single img:hover {
+    transform: scale(1.02);
+    border-color: #ffe600;
+}
+
+/* Línea separadora sutil */
+.separator {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #333, transparent);
+    margin: 60px 0;
+}
+/* --- AJUSTES PARA MÓVILES (Media Query) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Menú: En celulares, los links suelen amontonarse. 
+       Aquí los ponemos uno al lado del otro con scroll o los centramos */
+    .nav-links {
+        display: none; /* Sugerencia: Por ahora ocultarlos para evitar desorden, o: */
+        /* gap: 10px; font-size: 12px; */
+    }
+
+    /* 2. Títulos: Bajamos un poco el tamaño para que no ocupen toda la pantalla */
+    .section-title {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    /* 3. Grillas de imágenes: ¡IMPORTANTE! 
+       En PC son 2 o 4 columnas, en móvil DEBEN ser 1 columna */
+    .image-grid-two, 
+    .image-grid-four {
+        grid-template-columns: 1fr !important; /* Una imagen debajo de la otra */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-grid-two img, 
+    .image-grid-four img {
+        max-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    /* 4. Contenedor de contenido: Menos margen a los lados */
+    .content-wrap {
+        padding: 0 20px;
+    }
+
+    /* 5. El logo del menú: Un poco más pequeño */
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: flex;
+        overflow-x: auto; /* Permite deslizar el menú de izquierda a derecha */
+        white-space: nowrap;
+        padding-bottom: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .nav-links li {
+        margin: 0 10px;
+    }
+    
+    .nav-cta {
+        display: none; /* Ocultamos el botón de cotizar en el menú móvil para ganar espacio */
+    }
+}
+/* Estilos para el contenedor de superposición (fondo oscuro) */
+/* Contenedor principal con fondo más sutil */
+/* Estado base: Invisible al cargar */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+    /* CONFIGURACIÓN DE FADE-IN */
+    opacity: 0; /* Empieza invisible */
+    transition: opacity 1.5s ease-out; /* Duración de 1.5 segundos para la entrada */
+    pointer-events: none; /* Evita que bloquee clics mientras es invisible */
+}
+
+/* Clase que activaremos con JavaScript para mostrarlo */
+.popup-visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Clase para el cierre (fade-out) que ya tenías */
+.popup-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.5s ease-in; /* El cierre es más rápido que la entrada */
+}
+
+/* 1. Forzamos el tamaño del contenedor */
+.popup-content {
+    position: relative;
+    /* Usamos !important para que ninguna otra regla lo ignore */
+    width: 525px !important; 
+    max-width: 95% !important; 
+    background: transparent;
+    display: block;
+    margin: auto;
+}
+
+/* 2. Aseguramos que la imagen se adapte al nuevo tamaño del contenedor */
+.popup-img {
+    width: 100% !important; /* La imagen ahora llenará los 525px */
+    height: auto;
+    display: block;
+}
+
+/* Ajuste del botón de cierre para que flote sobre la transparencia */
+.close-btn {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background-color: #FF00FF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Clase para ocultar el popup con la animación */
+.popup-hidden {
+    opacity: 0;
+    pointer-events: none; /* Evita clics cuando está oculto */
+}
