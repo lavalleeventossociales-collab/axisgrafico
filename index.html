@@ -44,10 +44,10 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-        .nav-links a:hover { color: #FFD700; }
+        .nav-links a:hover { color: #dd28e4; }
         
         .nav-cta {
-            background: #fff;
+            background: #000;
             color: #000;
             border: none;
             padding: 10px 20px;
@@ -55,6 +55,11 @@
             cursor: pointer;
             font-weight: bold;
             text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .nav-cta:hover {
+            background: #fff;
+            transform: translateY(-1px);
         }
 
         /* --- HERO SECTION (Diseño de Reemplazo) --- */
@@ -97,15 +102,12 @@
         }
 
         /* --- BOTONES HERO --- */
-        .highlight-box {
-            background: #FFD700;
-            color: #000;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
+        .highlight-text {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 560px;
         }
         .btn-ghost {
             background: transparent;
@@ -162,6 +164,46 @@
         }
         .whatsapp-float:hover { transform: scale(1.1); background-color: #20ba5a; }
         .whatsapp-icon { width: 35px; height: 35px; fill: white; }
+
+        .site-footer {
+            padding: 40px 5% 60px;
+            border-top: 1px solid #222;
+            background: #060606;
+        }
+        .site-footer .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .site-footer .footer-grid { grid-template-columns: 1.2fr 0.8fr; }
+        }
+        .site-footer a { color: #dd28e4; text-decoration: none; }
+    </style>
+    <style>
+    /* TOP NAV UNIFICADO: menú centrado en la parte superior */
+    nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 5%;
+        background: rgba(0,0,0,0.9);
+        z-index: 1000;
+        border-bottom: 1px solid #222;
+    }
+    .nav-links { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0; }
+    .nav-links a { color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; }
+    .nav-links a:hover { color: #FFD700; background: rgba(255,255,255,0.03); }
+    .nav-cta { background: #000000; color: #000; padding: 8px 14px; border-radius: 999px; font-weight:700; }
+    @media (max-width: 767px) {
+        nav { position: static; padding: 12px 5%; }
+        .nav-links { flex-wrap: wrap; justify-content: center; }
+    }
     </style>
 </head>
 <body>
@@ -187,6 +229,9 @@
             <li><a href="vehicular.html">Vehicular</a></li>
             <li><a href="portabanner.html">Porta Banner</a></li>
             <li><a href="corporeos.html">Corpóreos</a></li>
+            <li><a href="imantados.html">Imantados</a></li>
+            <li><a href="luminosos.html">Luminosos</a></li>
+            <li><a href="#contacto" class="nav-cta">Contacto</a></li>
         </ul>
     </nav>
 
@@ -204,7 +249,7 @@
                 AXIS no es "un lugar que imprime cosas". Es el punto donde la marca se ordena, se define y se proyecta al público con calidad profesional.
             </p>
             <div class="flex gap-4">
-                <p class="highlight-box">Instalación - Reemplazo de lonas - Reparación de carteles - Ploteos</p>
+                <p class="highlight-text">Instalación - Reemplazo de lonas - Reparación de carteles - Ploteos</p>
                 
             </div>
         </div>
@@ -221,12 +266,14 @@
             <div class="marquee-item">✦ Letras Corpóreas</div>
             <div class="marquee-item">✦ Cartelería Exterior</div>
             <div class="marquee-item">✦ Diseño de Logotipos</div>
+            <div class="marquee-item">✦ Luminosos</div>
             <!-- Duplicado para loop infinito -->
             <div class="marquee-item">✦ Vinilos Decorativos</div>
             <div class="marquee-item">✦ Rotulación Vehicular</div>
             <div class="marquee-item">✦ Letras Corpóreas</div>
             <div class="marquee-item">✦ Cartelería Exterior</div>
             <div class="marquee-item">✦ Diseño de Logotipos</div>
+            <div class="marquee-item">✦ Luminosos</div>
         </div>
     </div>
 
@@ -236,37 +283,24 @@
         <img id="lightbox-img" src="" style="max-width: 90%; max-height: 80%; border: 2px solid #00AEEF; border-radius: 8px;">
     </div>
 
-    <!-- SCRIPT (Lógica de Pop-up y Zoom) -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const popup = document.getElementById('popup-mundial');
-            const close = document.getElementById('close-popup');
-
-            // 1. Aparición del Pop-up
-            setTimeout(() => {
-                if(popup) popup.classList.add('popup-visible');
-            }, 500);
-
-            // 2. Cierre automático tras 8.5 segundos
-            setTimeout(cerrarPopup, 8500);
-
-            // 3. Cierre manual
-            if(close) close.onclick = cerrarPopup;
-            if(popup) popup.onclick = (e) => { if(e.target === popup) cerrarPopup(); };
-
-            function cerrarPopup() {
-                if(popup) {
-                    popup.classList.remove('popup-visible');
-                    setTimeout(() => popup.style.display = 'none', 1500);
-                }
-            }
-        });
-    </script>
-
-    <!-- Botón de WhatsApp Flotante -->
+       <!-- Botón de WhatsApp Flotante -->
     <a href="https://wa.me/549261372586?text=Hola%20Axis%20Gráfico!%20Necesito%20un%20presupuesto%20personalizado." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
         <svg viewBox="0 0 32 32" class="whatsapp-icon"><path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825.737 5.48 2.025 7.788l-2.025 7.212 7.375-1.938c2.212 1.075 4.7 1.688 7.325 1.688 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.25 22.187c-.338.95-1.638 1.838-2.65 2.05-.7.137-1.6.25-4.7-1.025-3.95-1.625-6.5-5.638-6.7-5.9-.2-.262-1.625-2.163-1.625-4.125 0-1.963 1.025-2.925 1.388-3.325.363-.4.8-.5 1.063-.5.263 0 .525.013.75.025.238.013.563-.088.875.663.338.825 1.15 2.813 1.25 3.013.1.2.163.425.025.688-.125.262-.2.438-.4.662-.2.225-.425.5-.6.675-.2.2-.413.413-.175.825.238.4 1.05 1.738 2.25 2.813 1.55 1.388 2.85 1.825 3.25 2.025.4.2.638.175.875-.1.238-.275 1.025-1.188 1.3-1.6.275-.413.55-.338.925-.2.375.138 2.388 1.125 2.8 1.325.413.2.688.3.788.475.1.175.1 1.013-.238 1.963z"/></svg>
     </a>
+
+    <footer id="contacto" class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h3 class="font-bold text-xl mb-2">Axis Gráfico</h3>
+                <p class="text-gray-400">Soluciones de diseño, impresión y rotulación para marcas que quieren destacar.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-2">Contacto</h4>
+                <p class="text-gray-400 mb-1">WhatsApp: <a href="https://wa.me/549261372586">+54 9 261 372-586</a></p>
+                <p class="text-gray-400">Email: <a href="mailto:axisgrafico@gmail.com">axisgrafico@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Carga del script externo para el Zoom -->
     <script src="script.js"></script>

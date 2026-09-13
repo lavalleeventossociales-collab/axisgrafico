@@ -49,7 +49,7 @@
             color: #FFD700;
         }
         .nav-cta {
-            background: #fff;
+            background: #000000;
             color: #000;
             padding: 8px 18px;
             border-radius: 4px;
@@ -81,12 +81,12 @@
         }
         .marquee-track {
             display: inline-block;
-            animation: marquee 30s linear infinite;
+            animation: marquee 20s linear infinite;
         }
         .marquee-item {
             display: inline-block;
             margin-right: 40px;
-            font-size: 0.9rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: #444;
         }
@@ -96,6 +96,46 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
+        .site-footer {
+            padding: 40px 5% 60px;
+            border-top: 1px solid #222;
+            background: #060606;
+        }
+        .site-footer .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .site-footer .footer-grid { grid-template-columns: 1.2fr 0.8fr; }
+        }
+        .site-footer a { color: #FFD700; text-decoration: none; }
+    </style>
+    <style>
+    /* TOP NAV UNIFICADO: menú centrado en la parte superior */
+    nav {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 5%;
+        background: rgba(0,0,0,0.9);
+        z-index: 1000;
+        border-bottom: 1px solid #222;
+    }
+    .nav-links { display: flex; gap: 18px; list-style: none; padding: 0; margin: 0; }
+    .nav-links a { color: #fff; text-decoration: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; }
+    .nav-links a:hover { color: #FFD700; background: rgba(255,255,255,0.03); }
+    .nav-cta { background: #000000; color: #000; padding: 8px 14px; border-radius: 999px; font-weight:700; }
+    @media (max-width: 767px) {
+        nav { position: static; padding: 12px 5%; }
+        .nav-links { flex-wrap: wrap; justify-content: center; }
+    }
     </style>
 </head>
 <body>
@@ -111,7 +151,8 @@
         <li><a href="portabanner.html">Porta Banner</a></li>
         <li><a href="corporeos.html">Corpóreos</a></li>
         <li><a href="imantados.html">Imantados</a></li>
-        <li><a href="mundial.html">Mundial</a></li> <!-- Corregido: ya no tiene clase active -->
+        <li><a href="luminosos.html">Luminosos</a></li> <!-- Corregido: ya no tiene clase active -->
+        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
     </ul>
    
 </nav>
@@ -216,10 +257,7 @@
         <div class="marquee-item"><span>✦</span> Cartelería Exterior</div>
         <!-- Repetición para loop -->
         <div class="marquee-item"><span>✦</span> Vinilos Decorativos</div>
-        <div class="marquee-item"><span>✦</span> Rotulación Vehicular</div>
-        <div class="marquee-item"><span>✦</span> Letras Corpóreas</div>
-        <div class="marquee-item"><span>✦</span> Cartelería Exterior</div>
-    </div>
+           </div>
 </div>
 
 <!-- Estructura del Lightbox (Indispensable para el script.js) -->
@@ -227,6 +265,20 @@
     <button id="close-btn" style="position: absolute; top: 20px; right: 20px; color: white; font-size: 40px; background: none; border: none; cursor: pointer;">&times;</button>
     <img id="lightbox-img" src="" style="max-width: 90%; max-height: 80%; border: 2px solid #FFD700; border-radius: 8px;">
 </div>
+
+<footer id="contacto" class="site-footer">
+    <div class="footer-grid">
+        <div>
+            <h3 class="font-bold text-xl mb-2">Axis Gráfico</h3>
+            <p class="text-gray-400">Especialistas en vinilos, rotulación y señalización comercial para negocios y emprendimientos.</p>
+        </div>
+        <div>
+            <h4 class="font-semibold mb-2">Contacto</h4>
+            <p class="text-gray-400 mb-1">WhatsApp: <a href="https://wa.me/549261372586">+54 9 261 372-586</a></p>
+            <p class="text-gray-400">Email: <a href="mailto:axisgrafico@gmail.com">axisgrafico@gmail.com</a></p>
+        </div>
+    </div>
+</footer>
 
 <script src="script.js"></script>
 <!-- Botón Flotante de WhatsApp para Axis Gráfico -->
