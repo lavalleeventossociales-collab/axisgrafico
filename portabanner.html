@@ -74,6 +74,73 @@
             transform: scale(1.02);
         }
 
+        .product-card {
+            background: #111;
+            border: 1px solid #2a2a2a;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: 22px;
+            height: 100%;
+        }
+
+        .product-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #e5e5e5;
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+
+        .feature-list .material-symbols-outlined {
+            font-size: 20px;
+            margin-top: 2px;
+            color: #FF00FF;
+            flex-shrink: 0;
+        }
+
+        .rollup-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            align-items: stretch;
+            line-height: 0;
+        }
+        .rollup-pair img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+        .rollup-wide {
+            grid-column: 1 / -1;
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid #222;
+            object-fit: cover;
+            margin-top: 8px;
+        }
+
         @media (max-width: 768px) {
             .img-container img {
                 display: block;
@@ -81,6 +148,12 @@
                 max-width: 100%;
                 height: auto;
                 object-fit: contain;
+            }
+            .product-card {
+                padding: 18px;
+            }
+            .rollup-pair {
+                gap: 6px;
             }
         }
 
@@ -219,52 +292,41 @@
             <img src="images/1000235228_9c0e7f9a659f9bc43f65d8803c1f1020-20_3_2026, 14_14_55.png" alt="Detalle Doble Tensor 1">
             <img src="images/1000235229_cf0b7dfc518fc62f721f48e295b4663a-20_3_2026, 14_15_24.png" alt="Detalle Doble Tensor 2">
         </div>
-        <div class="order-1 lg:order-2">
+        <div class="order-1 lg:order-2 product-copy">
             <h2 class="text-3xl font-bold line-yellow mb-4">Doble Tensor con Lona</h2>
             <p class="text-gray-400 mb-6">Resistente, firme y liviano. Incluye bolso de transporte y lona impresa en alta definición (1440 dpi) con tintas eco-solventes aptas para exterior.</p>
-            <!-- Estructura de la lista corregida -->
-<ul class="space-y-3">
-    <li class="flex items-start gap-2">
-        <!-- Usamos 'items-start' y un pequeño margen superior en el icono 
-             para que, si el texto es largo, el icono quede alineado arriba -->
-        <span class="material-symbols-outlined line-magenta shrink-0" style="font-size: 20px; margin-top: 2px;">
-            check_circle
-        </span>
-        <span class="text-gray-200">Medida: 90 x 190 cm.</span>
-    </li>
-
-    <li class="flex items-start gap-2">
-        <span class="material-symbols-outlined line-magenta shrink-0" style="font-size: 20px; margin-top: 2px;">
-            check_circle
-        </span>
-        <span class="text-gray-200">Sistema totalmente encastrable.</span>
-    </li>
-
-    <li class="flex items-start gap-2">
-        <span class="material-symbols-outlined line-magenta shrink-0" style="font-size: 20px; margin-top: 2px;">
-            check_circle
-        </span>
-        <span class="text-gray-200">Impresión premium de base gris.</span>
-    </li>
-</ul>
+            <ul class="feature-list">
+                <li>
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Medida: 90 x 190 cm.</span>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Sistema totalmente encastrable.</span>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">check_circle</span>
+                    <span>Impresión premium de base gris.</span>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
 
 <!-- PRODUCTO 2: Roll-Up y Fly Banner -->
 <section class="px-[5%] py-16">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Roll-Up -->
-        <div class="bg-[#111] p-8 rounded-2xl border border-zinc-800">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div class="product-card">
             <h2 class="text-2xl font-bold line-magenta mb-4">Roll-Up (Roller)</h2>
             <p class="text-gray-400 mb-6">Máxima estabilidad con doble pata y lona blackout de 85 x 200 cm. El sistema más práctico para armar en segundos.</p>
-            <div class="img-container grid grid-cols-2 gap-2 mb-4">
+            <div class="rollup-pair">
                 <img src="images/1000235207_dcf2c45468c4b97c1775633375ae66b6-20_3_2026, 14_30_19.png" alt="Roll-up 1">
                 <img src="images/1000235217_19d8c3abfddeb0345fbdea1b8278dbe9-20_3_2026, 14_29_59.png" alt="Roll-up 2">
+                <img class="rollup-wide" src="images\Roll-Up.jpg" alt="Roll-up 3">
             </div>
         </div>
-        <!-- Fly Banner -->
-        <div class="bg-[#111] p-8 rounded-2xl border border-zinc-800">
+
+        <div class="product-card">
             <h2 class="text-2xl font-bold line-yellow mb-4">Fly Banner Pétalo</h2>
             <p class="text-gray-400 mb-6">Impresión por sublimación a todo color. Mástil desmontable de acero para exteriores con gran rendimiento frente al viento.</p>
             <div class="img-container">
@@ -281,17 +343,17 @@
         <p class="text-gray-400">Publicidad de doble faz ideal para veredas y exteriores.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 img-container">
-        <div>
+        <div class="product-card p-4">
             <img src="images/Caballete Metal 1.jpg" alt="Caballete Hierro" class="mb-4">
-            <h3 class="font-bold">Hierro (50x80 cm)</h3>
+            <h3 class="font-bold text-lg">Hierro (50x80 cm)</h3>
         </div>
-        <div>
+        <div class="product-card p-4">
             <img src="images/Gemini_Generated_Image_7r50997r50997r50.png" alt="Cartel de Pie" class="mb-4">
-            <h3 class="font-bold">Cartel de Pie (85x150 cm)</h3>
+            <h3 class="font-bold text-lg">Cartel de Pie (85x150 cm)</h3>
         </div>
-        <div>
+        <div class="product-card p-4">
             <img src="images/image (1).jpg" alt="Caballete Madera" class="mb-4">
-            <h3 class="font-bold">Madera (50x80 cm)</h3>
+            <h3 class="font-bold text-lg">Madera (50x80 cm)</h3>
         </div>
     </div>
 </section>
