@@ -74,27 +74,27 @@
 
         /* Marquee infinito */
         .marquee-wrap {
-            background: #0a0a0a;
-            padding: 20px 0;
+            background: #111;
+            padding: 25px 0;
             overflow: hidden;
-            border-top: 1px solid #1a1a1a;
+            white-space: nowrap;
+            border-top: 1px solid #222;
         }
         .marquee-track {
             display: inline-block;
-            animation: marquee 20s linear infinite;
+            animation: marquee 25s linear infinite;
         }
         .marquee-item {
             display: inline-block;
-            margin-right: 40px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #444;
+            margin-right: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
         }
-        .marquee-item span { color: #FFD700; margin-right: 10px; }
         
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         .site-footer {
@@ -251,13 +251,20 @@
 <!-- FOOTER MARQUEE -->
 <div class="marquee-wrap">
     <div class="marquee-track">
-        <div class="marquee-item"><span>✦</span> Vinilos Decorativos</div>
-        <div class="marquee-item"><span>✦</span> Rotulación Vehicular</div>
-        <div class="marquee-item"><span>✦</span> Letras Corpóreas</div>
-        <div class="marquee-item"><span>✦</span> Cartelería Exterior</div>
-        <!-- Repetición para loop -->
-        <div class="marquee-item"><span>✦</span> Vinilos Decorativos</div>
-           </div>
+        <div class="marquee-item">✦ Vinilos Decorativos</div>
+        <div class="marquee-item">✦ Rotulación Vehicular</div>
+        <div class="marquee-item">✦ Letras Corpóreas</div>
+        <div class="marquee-item">✦ Cartelería Exterior</div>
+        <div class="marquee-item">✦ Diseño de Logotipos</div>
+        <div class="marquee-item">✦ Luminosos</div>
+        <!-- Duplicado para loop infinito -->
+        <div class="marquee-item">✦ Vinilos Decorativos</div>
+        <div class="marquee-item">✦ Rotulación Vehicular</div>
+        <div class="marquee-item">✦ Letras Corpóreas</div>
+        <div class="marquee-item">✦ Cartelería Exterior</div>
+        <div class="marquee-item">✦ Diseño de Logotipos</div>
+        <div class="marquee-item">✦ Luminosos</div>
+    </div>
 </div>
 
 <!-- Estructura del Lightbox (Indispensable para el script.js) -->
