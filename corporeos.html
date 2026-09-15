@@ -118,6 +118,20 @@
             cursor: zoom-in;
         }
 
+        @media (max-width: 768px) {
+            .media-card .media-image {
+                min-height: auto;
+            }
+            .media-card img, .media-card video {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                max-height: none;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+
         /* Marquee Animado */
         .marquee-wrap {
             background: linear-gradient(90deg, #000, #111, #000);
