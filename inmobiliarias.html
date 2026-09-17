@@ -118,6 +118,10 @@
 
         .nav-toggle {
             display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
             border: 1px solid rgba(255,255,255,0.18);
             background: rgba(255,255,255,0.02);
             border-radius: 12px;
@@ -125,6 +129,15 @@
             height: 42px;
             color: white;
             cursor: pointer;
+            padding: 0;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
         }
 
         .hero-grid {
@@ -615,7 +628,11 @@
         </ul>
 
         <a class="nav-cta" href="#contacto">Solicitar presupuesto</a>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <header class="hero-grid">
